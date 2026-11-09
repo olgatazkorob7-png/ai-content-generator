@@ -1,20 +1,55 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+﻿# 🤖 AI Content Generator (AI Контент-Мейкер)
 
-# Run and deploy your AI Studio app
+Мультифункциональное веб-приложение для автоматизации создания B2B-контента с помощью больших языковых моделей (LLM). Проект построен на современном стеке (TypeScript, Next.js) и использует продвинутую инженерию промптов.
 
-This contains everything you need to run your app locally.
+🔗 **Живое демо:** [Посмотреть в Google AI Studio](https://ai.studio/apps/ccf61148-7a3d-40e9-a676-1f49410f3a16)
 
-View your app in AI Studio: https://ai.studio/apps/ccf61148-7a3d-40e9-a676-1f49410f3a16
+## 🚀 Основные возможности
 
-## Run Locally
+Приложение включает в себя 6 независимых генераторов контента:
+1.  **Кейсы (Case Studies):** Превращение сухих данных в продающие истории по структуре «ситуация → задача → решение → результат».
+2.  **Контент-планы:** Генерация стратегии для соцсетей (Telegram, VK) с чередованием типов постов.
+3.  **Email-рассылки:** Создание высококонверсионных B2B-писем с настройкой бизнес-цели и CTA.
+4.  **Подкасты:** Написание сценариев в формате диалога или монолога с заданным хронометражем.
+5.  **Коммерческие предложения (КП):** Структурированные документы с расчетом стоимости.
+6.  **Видео-аватары:** Генерация текстов для коротких видео с сильным хуком.
 
-**Prerequisites:**  Node.js
+## 🧠 Особенности архитектуры и Prompt Engineering
 
+*   **Строгий JSON-формат:** Все системные промпты настроены на возврат только валидного JSON. Это гарантирует стабильную работу фронтенда.
+*   **Защита от галлюцинаций:** Внедрена логика `missing_data`. Если ИИ не хватает данных, он возвращает список недостающих полей, а не выдумывает факты.
+*   **Модуль `brandVoice.ts`:** Умное управление Tone of Voice компании. Настройки (УТП, боли клиента, запрещенные слова) сохраняются в `LocalStorage` и автоматически подмешиваются в каждый промпт.
+*   **Модуль `llm.ts`:** Централизованный клиент для работы с API (поддержка OpenAI, Gemini и сторонних роутеров).
+*   **Модуль `validate.ts`:** Утилиты для очистки ответов от markdown-форматирования и поиска плейсхолдеров.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 🛠 Стек технологий
+
+*   **Frontend:** React, TypeScript.
+*   **AI Integration:** Google Gemini API / OpenAI API.
+*   **State Management:** React Hooks, LocalStorage API.
+*   **Стилизация:** Tailwind CSS.
+
+## ⚙️ Как запустить локально
+
+**Требования:** Node.js
+
+1.  Клонируйте репозиторий:
+    ```bash
+    git clone https://github.com/olgatazkorob7-png/ai-content-generator.git
+    cd ai-content-generator
+Установите зависимости:env
+GEMINI_API_KEY=ваш_ключ_gemini
+
+bash
+npm install
+Создайте файл .env.local в корне проекта и добавьте ваш API-ключ (согласно инструкции Google AI Studio):Запустите сервер разработки:
+
+bash
+npm run dev
+Откройте http://localhost:3000 
+👩‍💻 Автор
+Ольга Тяжкороб
+
+Портфолио
+
+GitHubв браузере.
